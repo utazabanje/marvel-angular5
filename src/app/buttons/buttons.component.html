@@ -1,0 +1,5 @@
+<div class="btn">
+  <button class="goBack"  (click)="goBack()" >Go back</button>
+  <button class="edit" *ngIf="showEdit" (click)="onEdit()" >Edit</button>
+  <button class="save" *ngIf="showSave" (click)="onSave()" >Save</button>
+</div>

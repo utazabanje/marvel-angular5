@@ -1,0 +1,21 @@
+<h2>Marvel Comics Detail</h2>
+
+<div *ngIf="singleComic">
+    <div fxLayout="row wrap">
+      <mat-card class="characterCard">
+        <mat-card-header class="character-title">
+          <mat-card-title>
+            {{ singleComic.title }}
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{ singleComic.thumbnail.path }}.{{ singleComic.thumbnail.extension }}" alt="marvel characters {{ singleComic.id }}"
+          class="charImage">
+        <mat-card-content>
+          <p class="charContent">
+            {{ singleComic.description }}
+          </p>
+        </mat-card-content>
+        <button (click)="comicCharDetail(singleComic.id)" mat-raised-button class="charLink" href="">Show Characters</button>
+      </mat-card>
+    </div>
+  </div>

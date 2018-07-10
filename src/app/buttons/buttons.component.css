@@ -1,0 +1,24 @@
+button {
+    border: none;
+    padding: 10px;
+}
+
+.btn {
+    padding: 20px;
+    text-align: center;
+}
+
+.goBack {
+    background-color: lightcoral;
+    color: white;
+}
+
+.edit {
+    background-color: lightseagreen;
+    color: white;
+}
+
+.save {
+    background-color: lightblue;
+    color: white;
+}

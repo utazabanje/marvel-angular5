@@ -1,0 +1,44 @@
+<!-- <app-buttons [showEdit]="showEdit" (save)="saveCharacter()" (edit)="editCharacter()" [showSave]="editMode"></app-buttons> -->
+
+<h2>Marvel Character Detail</h2>
+<!-- 
+<div *ngIf="editMode">
+  <form [formGroup]="characterForm">
+    <div class="form-group">
+      <label class="character-label">Name:
+        <input class="character-input" formControlName="name">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="character-label">Image:
+        <input class="character-input" formControlName="thumbnail">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="character-label">Description:
+        <input class="character-input" formControlName="description">
+      </label>
+    </div>
+  </form>
+</div> -->
+
+<div *ngIf="singleCharacter && !editMode">
+  <div *ngIf="singleCharacter">
+    <div fxLayout="row wrap">
+      <mat-card class="characterCard">
+        <mat-card-header class="character-title">
+          <mat-card-title>
+            {{ singleCharacter.name }}
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{ singleCharacter.thumbnail.path }}.{{ singleCharacter.thumbnail.extension }}" alt="marvel characters {{ singleCharacter.id }}"
+          class="charImage">
+        <mat-card-content>
+          <p class="charContent">
+            {{ singleCharacter.description }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

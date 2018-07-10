@@ -1,0 +1,32 @@
+<h2>List of Marvel characters</h2>
+
+<div class="spinner" *ngIf="!characterData">
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-paginator *ngIf="characterSinglePageData" 
+                [length]="characterData.length"
+                [pageSize]="pageSize"
+                [pageIndex]="pageIndex"
+                [pageSizeOptions]="[4, 8, 20]"
+                (page)="paginatorChange($event)"
+                [showFirstLastButtons]="true" >
+</mat-paginator>
+
+<div *ngIf="characterSinglePageData">
+  <div class="charContainer" fxLayout="row wrap" fxLayoutGap="20px">
+    <mat-card class="charCard" fxFlex="calc(25% - 20px)" fxGrow="0" *ngFor="let char of characterSinglePageData">
+      <mat-card-header>
+        <mat-card-title class="charTitle">
+          <button (click)="charDetail(char.id)" mat-raised-button class="charLink" href="">{{ char.name }}</button>
+        </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{ char.thumbnail.path }}.{{ char.thumbnail.extension }}" alt="marvel characters {{ char.id }}" class="charImage">
+      <mat-card-content>
+        <p class="charContent">
+          <!-- {{ char.description }} -->
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

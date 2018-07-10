@@ -1,0 +1,71 @@
+<div class="search-component">
+  <h2 class="searchTitle">Search Marvel database</h2>
+
+  <div class="searchForm">
+    <mat-form-field>
+      <input matInput #searchBox placeholder="Search..." [(ngModel)]="searchValue">
+    </mat-form-field>
+
+    <button mat-fab color="accent" (click)="search(searchBox.value)">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+
+  <div class="spinner" *ngIf="searchActive">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="searchCharacters">
+    <h2 *ngIf="searchCharacters.length > 0">List of Marvel characters</h2>
+    <div class="charContainer" fxLayout="row wrap" fxLayoutGap="20px">
+      <mat-card class="charCard" fxFlex="calc(33% - 20px)" fxGrow="0" *ngFor="let char of searchCharacters">
+        <mat-card-header>
+          <mat-card-title class="charTitle">
+            <button (click)="charDetail(char.id)" mat-raised-button class="charLink" href="">{{ char.name }}</button>
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{ char.thumbnail.path }}.{{ char.thumbnail.extension }}" alt="marvel characters {{ char.id }}"
+          class="charImage">
+        <mat-card-content>
+          <p class="charContent">
+            <!-- {{ char.description }} -->
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div *ngIf="searchComics">
+    <h2 *ngIf="searchComics.length > 0">List of Marvel comics</h2>
+    <div class="charContainer" fxLayout="row wrap" fxLayoutGap="20px">
+      <mat-card class="charCard" fxFlex="calc(33% - 20px)" fxGrow="0" *ngFor="let comic of searchComics">
+        <mat-card-header>
+          <mat-card-title class="charTitle">
+            <button (click)="comicDetail(comic.id)" mat-raised-button class="charLink" href="">{{ comic.title.substring(0, 20) }}{{ comic.title.length > 20 ? '...' : '' }}</button>
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{ comic.thumbnail.path }}.{{ comic.thumbnail.extension }}" alt="marvel characters {{ comic.id }}"
+          class="charImage">
+        <mat-card-content>
+          <p class="charContent">
+            <!-- {{ char.description }} -->
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div *ngIf="searchCreators">
+    <h2 *ngIf="searchCreators.length > 0">List of Marvel creators</h2>
+    <div class="charContainer" fxLayout="row wrap" fxLayoutGap="20px" >
+      <mat-card *ngFor="let creator of searchCreators" class="charCard" fxFlex="calc(33% - 20px)" fxGrow="0" >
+        <mat-card-header>
+          <mat-card-title class="charTitle">
+            {{ creator.fullName }}
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-img src="{{ creator.thumbnail.path }}.{{ creator.thumbnail.extension }}" class="charImage" alt="">
+      </mat-card>
+    </div>
+  </div>
+</div>

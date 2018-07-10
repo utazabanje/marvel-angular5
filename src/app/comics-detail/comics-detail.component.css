@@ -1,0 +1,30 @@
+.charImage {
+    max-height: 300px;
+    min-width: 300px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: #3f51b5;
+    margin: 40px;
+}
+
+.characterCard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.character-title {
+    text-align: center !important;
+}
+
+.charContent {
+    padding-top: 20px;
+}

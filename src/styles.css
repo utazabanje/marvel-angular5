@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+    margin: 0;
+    height: 100%;
+    /* overflow: hidden; */
+}
+
+.mat-card-header-text {
+    margin: 0 !important;
+    flex: 0 0 100%;
+}
+
+.bgImage {
+    background: linear-gradient(to top, rgba(0, 47, 75, .5), rgba(255, 255, 255, 2)), url('./assets/images/marvel.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.mat-paginator {
+    background: transparent;
+}
